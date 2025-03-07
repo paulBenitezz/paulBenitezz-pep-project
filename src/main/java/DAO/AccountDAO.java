@@ -79,21 +79,18 @@ public class AccountDAO {
             preparedStatement.setString(1, account.getUsername());
             ResultSet rs = preparedStatement.executeQuery();
     
-            // If a record with the same username exists, return false
             if (rs.next()) {
-                return false;  // Username already exists
+                return false; 
             }
     
-            // Check if the password is at least 4 characters long and the username is not empty
             if (account.getUsername().isEmpty() || account.getPassword().length() < 4) {
-                return false;  // Invalid username or password
+                return false;  // invalid username or password
             }
     
         } catch (SQLException e) {
             System.out.println("Error validating account creation: " + e.getMessage());
         }
     
-        // All checks passed, account creation is valid
         return true;
     }
 

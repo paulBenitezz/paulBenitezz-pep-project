@@ -150,7 +150,7 @@ public class MessageDAO {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setInt(1, account.getAccount_id());
                 ResultSet rs = preparedStatement.executeQuery();
-            // Process the result set and map it to message objects
+
             while (rs.next()) {
                 Message message = new Message(
                     rs.getInt("message_id"),
